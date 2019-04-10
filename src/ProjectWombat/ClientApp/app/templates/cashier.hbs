@@ -1,0 +1,35 @@
+<h1>{{cashier.name}}</h1>
+
+<button {{action 'newOrder'}}>New order</button>
+
+<span class="connection-status">
+  {{#if orderService.connecting}}
+    Ansluter!
+  {{else if orderService.connected}}
+    Ansluten!
+  {{/if}}
+
+  {{#unless (or orderService.connecting orderService.connected)}}
+    Nerkopplad..
+  {{/unless}}
+</span>
+
+
+{{#if orderService.order}}
+  {{#if (eq orderService.order.status 'preparing')}}
+    <button {{action 'setStatus' 'readyForPayment'}}>Make ready for payment</button>
+  {{else if (eq orderService.order.status 'readyForPayment')}}
+    <button {{action 'setStatus' 'preparing'}}>Back to prepare order</button>
+    <button {{action 'setStatus' 'paid'}}>Mark as paid</button>
+  {{/if}}
+
+  <ol>
+    {{#each products as |product|}}
+      {{cashier-product model=product order=orderService.order showButtons=true }}
+    {{/each}}
+  </ol>
+
+  {{cashier-product-summary model=products}}
+{{else}}
+  <span class="no-order">Ingen aktiv beställning</span>
+{{/if}}

@@ -1,0 +1,7 @@
+<ol>
+  {{#each model.rows as |orderRow|}}
+    {{orderRow.product.label}} {{orderRow.count}}
+  {{/each}}
+</ol>
+
+<span class="total">{{total}}kr</span>

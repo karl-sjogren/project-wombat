@@ -1,0 +1,13 @@
+<h1>Cashiers</h1>
+
+<ol>
+  {{#each cashiers as |cashier|}}
+    <span class="name">{{cashier.name}}</span>
+    {{#link-to 'cashier' cashier.id}}
+      Cashier view
+    {{/link-to}}
+    {{#link-to 'customer' cashier.id}}
+      Customer view
+    {{/link-to}}
+  {{/each}}
+</ol>

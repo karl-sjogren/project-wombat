@@ -1,0 +1,9 @@
+<ol>
+  {{#each model as |product|}}
+    {{#if product.count}}
+      {{cashier-product model=product }}
+    {{/if}}
+  {{/each}}
+</ol>
+
+<span class="total">{{total}}kr</span>
