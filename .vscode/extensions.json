@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "formulahendry.dotnet-test-explorer",
+        "ms-vscode.csharp",
+        "dbaeumer.vscode-eslint",
+        "mrmlnc.vscode-less",
+        "eamodio.gitlens"
+    ]
+}

@@ -1,0 +1,25 @@
+{
+    "cashiers": [
+        {
+            "id": "1",
+            "name": "Kassan"
+        }
+    ],
+    "products": [
+        {
+            "id": "beer",
+            "label": "Öl",
+            "Cost": 35
+        },
+        {
+            "id": "tacos-adult",
+            "label": "Tacos (vuxen)",
+            "Cost": 60
+        },
+        {
+            "id": "tacos-children",
+            "label": "Tacos (barn)",
+            "Cost": 45
+        }
+    ]
+}
