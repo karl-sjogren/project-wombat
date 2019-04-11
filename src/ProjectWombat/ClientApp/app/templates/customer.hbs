@@ -1,5 +1,5 @@
 <header class="customer-header">
-  <h1>{{cashier.name}} - Customer view</h1>
+  <h1>{{cashier.name}}</h1>
 
   {{connection-status connectedService=orderService}}
 </header>
@@ -14,9 +14,11 @@
       {{/if}}
     </div>
     <div class="order-paid-container {{if (eq orderService.order.status 'paid') 'visible'}}">
-      {{#if (eq orderService.order.status 'paid')}}
-        <span class="order-paid">{{t 'customer.order-paid'}}</span>
-      {{/if}}
+      <span class="order-paid">
+        {{#if (eq orderService.order.status 'paid')}}
+          {{t 'customer.order-paid'}}
+        {{/if}}
+      </span>
     </div>
   </section>
 {{else}}
