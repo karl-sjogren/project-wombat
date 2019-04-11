@@ -1,16 +1,6 @@
 <h1>{{cashier.name}} - Customer view</h1>
 
-<span class="connection-status">
-  {{#if orderService.connecting}}
-    Ansluter!
-  {{else if orderService.connected}}
-    Ansluten!
-  {{/if}}
-
-  {{#unless (or orderService.connecting orderService.connected)}}
-    Nerkopplad..
-  {{/unless}}
-</span>
+{{connection-status connectedService=orderService}}
 
 {{#if orderService.order}}
   {{customer-summary model=orderService.order}}
