@@ -1,8 +1,8 @@
 <span class="label">{{model.label}}</span>
 <span class="cost">{{format-number model.cost style='currency' currency='SEK'}}</span>
 {{#if showButtons}}
-  <button class="btn-decrease" {{action 'decrease'}}>-</button>
-  <button class="btn-increase" {{action 'increase'}}>+</button>
+  <button class="btn-decrease" disabled={{disableButtons}} {{action 'decrease'}}>-</button>
+  <button class="btn-increase" disabled={{disableButtons}} {{action 'increase'}}>+</button>
 {{/if}}
 <span class="count">{{t 'cashier.product-count' count=model.count}}</span>
 <span class="total">{{format-number total style='currency' currency='SEK'}}</span>

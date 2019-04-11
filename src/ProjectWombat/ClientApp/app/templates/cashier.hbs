@@ -12,7 +12,7 @@
     <section class="cashier-available-products">
       <ol>
         {{#each products as |product|}}
-          {{cashier-product model=product order=orderService.order showButtons=true }}
+          {{cashier-product model=product order=orderService.order showButtons=true disableButtons=disableEditing }}
         {{/each}}
       </ol>
     </section>
