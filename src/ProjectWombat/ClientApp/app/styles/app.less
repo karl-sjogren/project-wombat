@@ -1,3 +1,6 @@
+@import "customer.less";
+
+
 @bg-color:                    #e9e9e9;
 @product-item-bg:             white;
 @summary-bg:                  white;
@@ -35,12 +38,16 @@ ol {
   opacity: 0.5;
   font-weight: bold;
 }
+
+@header-height:     70px;
+
 header{
   flex: none;
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: flex-start;
+  height: @header-height;
   > *{
     margin: 10px;
   }
@@ -50,8 +57,11 @@ header{
   display: flex;
   flex-flow: row wrap;
 }
+
 .cashier-available-products {
   flex: 1 60%;
+  height: ~"calc(100vh - @{header-height} - 20px)";
+  overflow-y: auto;
   li{
     //padding: 10px;
     display: flex;
@@ -66,8 +76,13 @@ header{
     .label{
       flex: 1;
     }
-    .count, .total{
+    .count{
       min-width: 40px;
+      padding: 20px 10px;
+      text-align: center;
+    }
+    .total{
+      min-width: 80px;
       padding: 20px 10px;
       text-align: center;
     }
@@ -84,6 +99,7 @@ header{
   background: none;
   font-size: 0;
   position: relative;
+  
   cursor: pointer;
   &:before{
     content: "";
@@ -115,7 +131,6 @@ header{
   flex-flow: column wrap;
   border-radius: 20px;
   margin: 10px 20px 20px;
-  
   box-shadow: @shadow;
   .cashier-product-summary-items {
     flex: 1;
@@ -124,6 +139,8 @@ header{
     ol{
       flex:1;
       padding-top: 10px;
+      height: ~"calc(100vh - @{header-height} - 180px)";
+      overflow-y: auto;
     }
     li{
       display: flex;
@@ -138,7 +155,7 @@ header{
         display: none;
       }
       .count, .total {
-        min-width: 40px;
+        min-width: 80px;
         text-align: right;
       }
     }
@@ -147,6 +164,7 @@ header{
       border-top: @list-item-border;
       border-bottom: @list-item-border;
       text-align: right;
+      font-size: 2rem
     }
   }
 

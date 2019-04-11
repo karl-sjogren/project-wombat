@@ -1,0 +1,67 @@
+.customer-container {
+  display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  > div{
+    flex: 1;
+    background: white;
+    margin: 0 20px 20px;
+    border-radius: 20px;
+    box-shadow: @shadow;
+    overflow: hidden;
+  }
+}
+
+.customer-summary{
+  display: flex;
+  flex-direction: column;
+  ol{
+    flex: 1;
+    padding-top: 10px;
+  }
+  li{
+    display: flex;
+    padding: 10px 15px;
+    border-bottom: @list-item-border;
+    > span{
+      padding: 5px; 
+    }
+    .label{
+      flex:1;
+    }
+    .total{
+      min-width: 100px;
+      text-align: right;
+    }
+  }
+  .grandtotal-container{
+    display: flex;
+    justify-content: space-between;
+    background: #f7f7f7;
+    align-items: center;
+    padding: 14px 20px;
+    border-top: @list-item-border;
+    font-size: 1.5rem;
+  }
+  .grand-total{
+    font-size: 2rem
+  }
+}
+.qr-code-container{
+  padding-top: 40px;
+  text-align: center;
+}
+
+.order-paid{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255,255,255,0.7);
+  //transform: translateX(-50%);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 30%
+}

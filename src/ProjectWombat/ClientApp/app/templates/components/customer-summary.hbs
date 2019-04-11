@@ -1,7 +1,14 @@
 <ol>
   {{#each model.rows as |orderRow|}}
-    {{orderRow.product.label}} {{orderRow.count}}
+    <li>
+      <span class="label">{{orderRow.product.label}}</span>
+      <span class="count"> {{orderRow.count}}</span>
+      <span class="total">{{format-number orderRow.total style='currency' currency='SEK'}}</span>
+    </li>
   {{/each}}
 </ol>
 
-<span class="total">{{format-number total style='currency' currency='SEK'}}</span>
+<div class="grandtotal-container">
+  <span class="label">Att betala</span>
+  <span class="grand-total">{{format-number total style='currency' currency='SEK'}}</span>
+</div>
