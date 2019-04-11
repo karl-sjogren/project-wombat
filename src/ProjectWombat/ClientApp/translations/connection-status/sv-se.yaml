@@ -1,0 +1,4 @@
+connection-status:
+  connecting: "Ansluter"
+  connected: "Ansluten"
+  disconnected: "Frånkopplad"

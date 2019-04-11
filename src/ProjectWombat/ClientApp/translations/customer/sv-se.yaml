@@ -1,0 +1,5 @@
+customer:
+  product-count: "{count, number}st"
+  swish-qr-code: "Skanna QR-koden från Swish-appen"
+  order-paid: "Tack för att du handlade!"
+  no-active-order: "Det finns ingen aktiv order just nu."

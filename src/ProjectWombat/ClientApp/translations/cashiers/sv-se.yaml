@@ -1,0 +1,8 @@
+cashiers:
+  header: "Kassor"
+  cashier-view:
+    label: "Kassörsvy"
+    tooltip: "Gå till kassörsvyn för att hantera ordrar."
+  customer-view:
+    label: "Kundvy"
+    tooltip: "Gå till kundvyn för att visa ordersummeringar och betalningsalternativ."

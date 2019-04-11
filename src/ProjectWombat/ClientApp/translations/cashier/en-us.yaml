@@ -11,4 +11,5 @@ cashier:
   mark-as-paid-button:
     label: "Paid"
     tooltip: "Marks this order as paid."
+  product-count: "{count, number}"
   no-active-order: "There is currently no active order."

@@ -1,0 +1,15 @@
+cashier:
+  new-order-button:
+    label: "Skapa ny order"
+    tooltip: "Rensar den nuvarande order och skapar en ny."
+  ready-for-payment-button:
+    label: "Redo för betalning"
+    tooltip: "Markerar denna order som redo att betalas så kunden kan betala."
+  back-to-preparation-button:
+    label: "Tillbaka"
+    tooltip: "Markerar denna order som ej betalbar och går tillbaka till order-läget."
+  mark-as-paid-button:
+    label: "Betalad"
+    tooltip: "Markerar denna order som betald."
+  product-count: "{count, number}st"
+  no-active-order: "Det finns ingen aktiv order just nu."
