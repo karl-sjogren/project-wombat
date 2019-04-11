@@ -1,8 +1,8 @@
 <span class="label">{{model.label}}</span>
 <span class="cost">{{model.cost}}kr</span>
 {{#if showButtons}}
-  <button {{action 'decrease'}}>-</button>
-  <button {{action 'increase'}}>+</button>
+  <button class="btn-decrease" {{action 'decrease'}}>-</button>
+  <button class="btn-increase" {{action 'increase'}}>+</button>
 {{/if}}
 <span class="count">{{model.count}}st</span>
 <span class="total">{{total}}kr</span>

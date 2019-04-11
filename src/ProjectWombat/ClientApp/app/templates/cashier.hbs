@@ -1,7 +1,7 @@
 <section class="cashier-header">
   <h1>{{cashier.name}}</h1>
 
-  <button {{action 'newOrder'}} title={{t 'cashier.new-order-button.tooltip'}}>
+  <button class="btn-primary" {{action 'newOrder'}} title={{t 'cashier.new-order-button.tooltip'}}>
     {{t 'cashier.new-order-button.label'}}
   </button>
 
@@ -10,16 +10,16 @@
 
 {{#if orderService.order}}
   
-  <section class="cashier-products-container">
+  <section class="cashier-products-container cashier-available-products">
     <ol>
       {{#each products as |product|}}
         {{cashier-product model=product order=orderService.order showButtons=true }}
       {{/each}}
     </ol>
   </section>
-  <section class="cashier-product-summary">
-
-    {{cashier-product-summary model=products}}
+  <section class="cashier-products-container cashier-product-summary">
+    
+    {{cashier-product-summary classNames="cashier-product-summary-items" model=products}}
     
     <div class="cashier-product-summary-btns">
       {{#if (eq orderService.order.status 'preparing')}}

@@ -1,0 +1,11 @@
+<span class="connection-status">
+  {{#if connectedService.connecting}}
+    {{t 'connection-status.connecting'}}
+  {{else if connectedService.connected}}
+    {{t 'connection-status.connected'}}
+  {{/if}}
+
+  {{#unless (or connectedService.connecting connectedService.connected)}}
+    {{t 'connection-status.disconnected'}}
+  {{/unless}}
+</span>
