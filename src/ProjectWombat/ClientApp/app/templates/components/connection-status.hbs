@@ -1,11 +1,13 @@
-<span class="connection-status">
-  {{#if connectedService.connecting}}
+<span class="connection-status {{if isConnecting 'status-connecting'}} {{if isConnected 'status-connected'}} {{if isDisconnected 'status-disconnected'}}">
+  {{#if isConnecting}}
     {{t 'connection-status.connecting'}}
-  {{else if connectedService.connected}}
+  {{/if}}
+
+  {{#if isConnected}}
     {{t 'connection-status.connected'}}
   {{/if}}
 
-  {{#unless (or connectedService.connecting connectedService.connected)}}
+  {{#if isDisconnected}}
     {{t 'connection-status.disconnected'}}
-  {{/unless}}
+  {{/if}}
 </span>
