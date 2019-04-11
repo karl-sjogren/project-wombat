@@ -1,5 +1,6 @@
 customer:
   product-count: "{count, number}"
   swish-qr-code: "Scan the QR code from the Swish app"
+  swish-qr-code-alt: "QR code to scan from the Swish app"
   order-paid: "Thanks for shopping here!"
   no-active-order: "There is currently no active order."
