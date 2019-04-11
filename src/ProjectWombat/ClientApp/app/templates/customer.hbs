@@ -13,9 +13,11 @@
           <span class="swish-qr-code">{{t 'customer.swish-qr-code'}}</span>
       {{/if}}
     </div>
-    {{#if (eq orderService.order.status 'paid')}}
-      <span class="order-paid">{{t 'customer.order-paid'}}</span>
-    {{/if}}
+    <div class="order-paid-container {{if (eq orderService.order.status 'paid') 'visible'}}">
+      {{#if (eq orderService.order.status 'paid')}}
+        <span class="order-paid">{{t 'customer.order-paid'}}</span>
+      {{/if}}
+    </div>
   </section>
 {{else}}
   <span class="no-order">{{t 'customer.no-active-order'}}</span>
