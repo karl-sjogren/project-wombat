@@ -7,11 +7,6 @@
     ],
     "products": [
         {
-            "id": "beer",
-            "label": "Öl",
-            "Cost": 35
-        },
-        {
             "id": "tacos-adult",
             "label": "Tacos (vuxen)",
             "Cost": 60
@@ -19,7 +14,47 @@
         {
             "id": "tacos-children",
             "label": "Tacos (barn)",
-            "Cost": 45
+            "Cost": 40
+        },
+        {
+            "id": "norrlandsguld",
+            "label": "Norrlands guld",
+            "Cost": 40
+        },
+        {
+            "id": "mariestads",
+            "label": "Mariestads",
+            "Cost": 40
+        },
+        {
+            "id": "carlsberghof",
+            "label": "Carlsberg hof",
+            "Cost": 30
+        },
+        {
+            "id": "päroncider",
+            "label": "Päroncider",
+            "Cost": 40
+        },
+        {
+            "id": "smirnoff",
+            "label": "Smirnoff",
+            "Cost": 40
+        },
+        {
+            "id": "övrigdryck",
+            "label": "Övrig dryck",
+            "Cost": 40
+        },
+        {
+            "id": "läsk",
+            "label": "Läsk",
+            "Cost": 10
+        },
+        {
+            "id": "festis",
+            "label": "Festis",
+            "Cost": 10
         }
     ]
 }

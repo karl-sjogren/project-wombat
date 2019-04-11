@@ -1,35 +1,43 @@
-<h1>{{cashier.name}}</h1>
+<section class="cashier-header">
+  <h1>{{cashier.name}}</h1>
 
-<button {{action 'newOrder'}}>New order</button>
+  <button {{action 'newOrder'}}>New order</button>
 
-<span class="connection-status">
-  {{#if orderService.connecting}}
-    Ansluter!
-  {{else if orderService.connected}}
-    Ansluten!
-  {{/if}}
+  <span class="connection-status">
+    {{#if orderService.connecting}}
+      Ansluter!
+    {{else if orderService.connected}}
+      Ansluten!
+    {{/if}}
 
-  {{#unless (or orderService.connecting orderService.connected)}}
-    Nerkopplad..
-  {{/unless}}
-</span>
-
+    {{#unless (or orderService.connecting orderService.connected)}}
+      Nerkopplad..
+    {{/unless}}
+  </span>
+</section>
 
 {{#if orderService.order}}
-  {{#if (eq orderService.order.status 'preparing')}}
-    <button {{action 'setStatus' 'readyForPayment'}}>Make ready for payment</button>
-  {{else if (eq orderService.order.status 'readyForPayment')}}
-    <button {{action 'setStatus' 'preparing'}}>Back to prepare order</button>
-    <button {{action 'setStatus' 'paid'}}>Mark as paid</button>
-  {{/if}}
+  
+  <section class="cashier-products-container">
+    <ol>
+      {{#each products as |product|}}
+        {{cashier-product model=product order=orderService.order showButtons=true }}
+      {{/each}}
+    </ol>
+  </section>
+  <section class="cashier-product-summary">
 
-  <ol>
-    {{#each products as |product|}}
-      {{cashier-product model=product order=orderService.order showButtons=true }}
-    {{/each}}
-  </ol>
-
-  {{cashier-product-summary model=products}}
+    {{cashier-product-summary model=products}}
+    
+    <div class="cashier-product-summary-btns">
+      {{#if (eq orderService.order.status 'preparing')}}
+        <button class="btn-primary" {{action 'setStatus' 'readyForPayment'}}>Make ready for payment</button>
+      {{else if (eq orderService.order.status 'readyForPayment')}}
+        <button class="btn-primary" {{action 'setStatus' 'preparing'}}>Back to prepare order</button>
+        <button class="btn-primary btn-payed" {{action 'setStatus' 'paid'}}>Mark as paid</button>
+      {{/if}}
+    </div>
+  </section>
 {{else}}
   <span class="no-order">Ingen aktiv beställning</span>
 {{/if}}

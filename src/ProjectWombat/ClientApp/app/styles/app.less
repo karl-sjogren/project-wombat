@@ -1,0 +1,57 @@
+@primary-color:               #1dafec;
+
+
+body{
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+  > div {
+    display: flex;
+    flex-flow: row wrap;
+    height: 100%;
+    .cashier-header{
+      flex: 1 100%;
+    }
+    .cashier-products-container, .cashier-product-summary {
+      flex: 1;
+    }
+  }
+}
+ol{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cashier-products-container{
+  border: 1px solid red;
+
+  
+}
+
+.cashier-product-summary{
+  border: 1px solid green;
+
+  display: flex;
+  flex-flow: column wrap;
+  //height: 100%;
+  .ember-view{
+    flex: 1;
+  }
+  .cashier-product-summary-btns{
+    flex: none;
+  }
+}
+
+.btn-primary {
+  padding: 15px;
+  font-size: 1rem;
+  border: none;
+  background: @primary-color;
+  color: white;
+  //border-radius: 20px;
+  border-radius: 4px;
+}
+.btn-payed{
+  background: green;
+}
