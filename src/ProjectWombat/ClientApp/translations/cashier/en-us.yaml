@@ -1,0 +1,15 @@
+cashier:
+  new-order-button:
+    label: "Create new order"
+    tooltip: "Clears the current order and creates a new one."
+  ready-for-payment-button:
+    label: "Ready for payment"
+    tooltip: "Marks this order as ready for payment so the customer can pay it."
+  back-to-preparation-button:
+    label: "Go back"
+    tooltip: "Marks this order as not payable again and goes back to the preparation step."
+  mark-as-paid-button:
+    label: "Paid"
+    tooltip: "Marks this order as paid."
+  product-count: "{count, number}"
+  no-active-order: "There is currently no active order."

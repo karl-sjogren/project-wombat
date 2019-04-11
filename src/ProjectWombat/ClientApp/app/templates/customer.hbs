@@ -1,24 +1,21 @@
 <header class="customer-header">
   <h1>{{cashier.name}} - Customer view</h1>
 
-  <span class="connection-status">
-    {{#if orderService.connecting}}
-      Ansluter!
-    {{else if orderService.connected}}
-      Ansluten!
-    {{/if}}
-
-    {{#unless (or orderService.connecting orderService.connected)}}
-      Nerkopplad..
-    {{/unless}}
-  </span>
+  {{connection-status connectedService=orderService}}
 </header>
 {{#if orderService.order}}
   {{customer-summary model=orderService.order}}
 
   {{#if (eq orderService.order.status 'readyForPayment')}}
-    {{swish-qr-code}}
+    <div class="qr-code-container">
+      {{swish-qr-code}}
+      <span class="swish-qr-code">{{t 'customer.swish-qr-code'}}</span>
+    </div>
+  {{/if}}
+
+  {{#if (eq orderService.order.status 'paid')}}
+    <span class="order-paid">{{t 'customer.order-paid'}}</span>
   {{/if}}
 {{else}}
-  <span class="no-order">Ingen aktiv beställning</span>
+  <span class="no-order">{{t 'customer.no-active-order'}}</span>
 {{/if}}

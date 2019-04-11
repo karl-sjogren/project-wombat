@@ -1,0 +1,8 @@
+cashiers:
+  header: "Cashiers"
+  cashier-view:
+    label: "Cashier view"
+    tooltip: "Go to the cashier view to manage orders."
+  customer-view:
+    label: "Customer view"
+    tooltip: "Go to the customer view to show order summaries and payment options."

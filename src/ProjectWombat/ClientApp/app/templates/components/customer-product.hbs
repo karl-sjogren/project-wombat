@@ -1,4 +1,4 @@
 <span class="label">{{model.label}}</span>
-<span class="cost">{{model.cost}}kr</span>
-<span class="count">{{model.count}}st</span>
-<span class="total">{{total}}kr</span>
+<span class="cost">{{format-number model.cost style='currency' currency='SEK'}}</span>
+<span class="count">{{t 'customer.product-count' count=model.count}}</span>
+<span class="total">{{format-number total style='currency' currency='SEK'}}</span>

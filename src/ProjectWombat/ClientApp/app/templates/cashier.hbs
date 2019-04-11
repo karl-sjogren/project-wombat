@@ -1,19 +1,10 @@
 <header class="cashier-header">
   <h1>{{cashier.name}}</h1>
 
-  <button class="btn-primary" {{action 'newOrder'}}>New order</button>
-
-  <span class="connection-status">
-    {{#if orderService.connecting}}
-      Ansluter!
-    {{else if orderService.connected}}
-      Ansluten!
-    {{/if}}
-
-    {{#unless (or orderService.connecting orderService.connected)}}
-      Nerkopplad..
-    {{/unless}}
-  </span>
+  <button class="btn-primary" {{action 'newOrder'}} title={{t 'cashier.new-order-button.tooltip'}}>
+    {{t 'cashier.new-order-button.label'}}
+  </button>
+  {{connection-status connectedService=orderService}}
 </header>
 
 {{#if orderService.order}}
@@ -31,14 +22,21 @@
       
       <div class="cashier-product-summary-btns">
         {{#if (eq orderService.order.status 'preparing')}}
-          <button class="btn-primary" {{action 'setStatus' 'readyForPayment'}}>Make ready for payment</button>
+          <button class="btn-primary" {{action 'setStatus' 'readyForPayment'}} title={{t 'cashier.ready-for-payment-button.tooltip'}}>
+            {{t 'cashier.ready-for-payment-button.label'}}
+          </button>
         {{else if (eq orderService.order.status 'readyForPayment')}}
-          <button class="btn-primary" {{action 'setStatus' 'preparing'}}>Back to prepare order</button>
-          <button class="btn-primary btn-payed" {{action 'setStatus' 'paid'}}>Paid</button>
+          <button class="btn-primary" {{action 'setStatus' 'preparing'}} title={{t 'cashier.back-to-preparation-button.tooltip'}}>
+            {{t 'cashier.back-to-preparation-button.label'}}
+          </button>
+          <button class="btn-primary btn-payed" {{action 'setStatus' 'paid'}} title={{t 'cashier.mark-as-paid-button.tooltip'}}>
+            {{t 'cashier.mark-as-paid-button.label'}}
+          </button>
         {{/if}}
       </div>
+
     </section>
   </section>
 {{else}}
-  <span class="no-order">Ingen aktiv beställning</span>
+  <span class="no-order">{{t 'cashier.no-active-order'}}</span>
 {{/if}}

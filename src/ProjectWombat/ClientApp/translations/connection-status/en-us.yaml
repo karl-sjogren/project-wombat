@@ -1,0 +1,4 @@
+connection-status:
+  connecting: "Connecting"
+  connected: "Connected"
+  disconnected: "Disconnected"
