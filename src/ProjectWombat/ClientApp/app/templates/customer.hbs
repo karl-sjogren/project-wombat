@@ -1,17 +1,18 @@
-<h1>{{cashier.name}} - Customer view</h1>
+<header class="customer-header">
+  <h1>{{cashier.name}} - Customer view</h1>
 
-<span class="connection-status">
-  {{#if orderService.connecting}}
-    Ansluter!
-  {{else if orderService.connected}}
-    Ansluten!
-  {{/if}}
+  <span class="connection-status">
+    {{#if orderService.connecting}}
+      Ansluter!
+    {{else if orderService.connected}}
+      Ansluten!
+    {{/if}}
 
-  {{#unless (or orderService.connecting orderService.connected)}}
-    Nerkopplad..
-  {{/unless}}
-</span>
-
+    {{#unless (or orderService.connecting orderService.connected)}}
+      Nerkopplad..
+    {{/unless}}
+  </span>
+</header>
 {{#if orderService.order}}
   {{customer-summary model=orderService.order}}
 

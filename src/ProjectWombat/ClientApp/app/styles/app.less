@@ -16,7 +16,7 @@ body{
   font-family: 'Montserrat', sans-serif;
   > div {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
     height: 100%;
   }
 }
@@ -35,16 +35,20 @@ ol {
   opacity: 0.5;
   font-weight: bold;
 }
-.cashier-header{
+header{
   flex: none;
+  display: flex;
   width: 100%;
-  text-align: center;
-
-  .connection-status{
-    position: fixed;
-    top: 10px;
-    right: 10px;
+  justify-content: space-between;
+  align-items: flex-start;
+  > *{
+    margin: 10px;
   }
+  
+}
+.cashier-products-container {
+  display: flex;
+  flex-flow: row wrap;
 }
 .cashier-available-products {
   flex: 1 60%;
@@ -57,12 +61,15 @@ ol {
     border-radius: 10px;
     > * {
       padding: 20px;
-    }
-    .label{
       
     }
-    .cost{
+    .label{
       flex: 1;
+    }
+    .count, .total{
+      min-width: 40px;
+      padding: 20px 10px;
+      text-align: center;
     }
 
     
@@ -130,7 +137,10 @@ ol {
       .cost{
         display: none;
       }
-
+      .count, .total {
+        min-width: 40px;
+        text-align: right;
+      }
     }
     .grand-total{
       padding: 14px 20px;
@@ -157,4 +167,9 @@ ol {
 }
 .btn-payed{
   background: green;
+}
+
+
+.customer-header{
+
 }
