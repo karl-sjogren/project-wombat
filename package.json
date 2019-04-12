@@ -1,5 +1,9 @@
 { 
+  "description": "Dummy file for heroku",
   "engines": {
     "node": "8.12.0"
-  }
+  },
+  "cacheDirectories": [
+    "src/ProjectWombat/ClientApp/node_modules"
+  ]
 }
