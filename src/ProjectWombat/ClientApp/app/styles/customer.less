@@ -1,10 +1,6 @@
 header.customer-header{
-  justify-content: center;
-  .connection-status{
-    position: absolute; 
-    top: 10px;
-    right: 10px;
-  }
+  text-align: center;
+  
 }
 
 .customer-container {
@@ -51,14 +47,27 @@ header.customer-header{
     padding: 14px 20px;
     border-top: @list-item-border;
     font-size: 1.5rem;
+    transition: all 0.3s ease-out;
   }
   .grand-total{
-    font-size: 2rem
+    font-size: 2rem;
+    transition: all 0.3s ease-out;
   }
 }
 .qr-code-container{
-  padding-top: 40px;
+  padding-top: 20px;
   text-align: center;
+  img{
+    max-width: 100%;
+  }
+  span{
+    display: block;
+  }
+  .order-id{
+    letter-spacing: 2px;
+    font-weight: bold;
+    font-size: 1.3rem;
+  }
 }
 
 .order-paid-container {
@@ -74,8 +83,9 @@ header.customer-header{
   text-align: center;
   padding-top: 20%;
   transition: background 0.3s;
+  pointer-events: none;
   
-  .order-paid{
+  .order-paid {
     
   }
 
@@ -83,6 +93,16 @@ header.customer-header{
     background: rgba(255,255,255,0.8);
 
    
+  }
+}
+
+.ready-for-payment{
+  .grandtotal-container{
+    font-size: 2rem;
+    padding: 30px 20px;
+  }
+  .grand-total {
+    font-size: 2.5rem;
   }
 }
 
