@@ -4,13 +4,15 @@
   {{connection-status connectedService=orderService}}
 </header>
 {{#if orderService.order}}
-  <section class="customer-container">
+  <section class="customer-container {{if (eq orderService.order.status 'readyForPayment') 'ready-for-payment'}} {{if (eq orderService.order.status 'paid') 'paid'}}">
     {{customer-summary classNames="customer-summary" model=orderService.order}}
 
     <div class="qr-code-container">
       {{#if (eq orderService.order.status 'readyForPayment')}}
-          {{swish-qr-code}}
-          <span class="swish-qr-code">{{t 'customer.swish-qr-code'}}</span>
+        <span class="order-id-label">{{t 'customer.order-id'}}</span>
+        <span class="order-id">{{orderService.order.id}}</span>
+        {{swish-qr-code}}
+        <span class="swish-qr-code">{{t 'customer.swish-qr-code'}}</span>
       {{/if}}
     </div>
     <div class="order-paid-container {{if (eq orderService.order.status 'paid') 'visible'}}">
@@ -22,7 +24,6 @@
           {{t 'customer.order-paid'}}
         {{/if}}
       </span>
-      
     </div>
   </section>
 {{else}}

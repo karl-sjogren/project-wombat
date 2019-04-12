@@ -1,5 +1,6 @@
 customer:
   product-count: "{count, number}st"
+  order-id: "Order-nummer:"
   swish-qr-code: "Skanna QR-koden från Swish-appen"
   swish-qr-code-alt: "QR-kod som ska skannas i Swish-appen."
   order-paid: "Tack för att du handlade!"

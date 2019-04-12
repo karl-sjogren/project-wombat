@@ -19,8 +19,8 @@ namespace ProjectWombat.Services {
 
         public async Task<byte[]> GetQrCodeForOrder(Order order) {
             var prefilled = new {
-                format = "svg",
-                //size = 300,
+                format = "png",
+                size = 600,
                 payee = new {
                     value = "+46730647352",
                     editable = false

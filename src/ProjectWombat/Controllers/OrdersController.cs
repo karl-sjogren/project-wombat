@@ -41,7 +41,7 @@ namespace ProjectWombat.Controllers {
             
             var buffer = await _qrCodeGenerator.GetQrCodeForOrder(order);
 
-            return File(buffer, "image/svg+xml");
+            return File(buffer, "image/png");
         }
     }
 }
