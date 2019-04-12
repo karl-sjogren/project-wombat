@@ -22,7 +22,7 @@ export default Controller.extend({
     return false;
   }),
 
-  orderIdObserver: observer('orderSerice.order.id', function() {
+  orderIdObserver: observer('orderService.order.id', function() {
     this.products.forEach(product => {
       set(product, 'count', 0);
     })
