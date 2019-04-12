@@ -139,7 +139,7 @@ header{
     ol{
       flex:1;
       padding-top: 10px;
-      height: ~"calc(100vh - @{header-height} - 180px)";
+      height: ~"calc(100vh - @{header-height} - 190px)";
       overflow-y: auto;
     }
     li{
@@ -171,6 +171,11 @@ header{
   .cashier-product-summary-btns {
     flex: none;
     padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    .ready-to-pay-btn{
+      width: 100%;
+    }
   }
 }
 
@@ -184,7 +189,7 @@ header{
   border-radius: 4px;
 }
 .btn-payed{
-  background: green;
+  background: #06d44a;
 }
 
 
