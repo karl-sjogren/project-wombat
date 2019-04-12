@@ -1,42 +1,44 @@
-<header class="cashier-header">
-  <h1>{{cashier.name}}</h1>
+<div class="cashier-container {{if noActiveOrder 'no-active-order'}}">
+  <header class="cashier-header">
+    <h1>{{cashier.name}}</h1>
 
-  <button class="btn-primary" {{action 'newOrder'}} title={{t 'cashier.new-order-button.tooltip'}}>
-    {{t 'cashier.new-order-button.label'}}
-  </button>
-  {{connection-status connectedService=orderService}}
-</header>
+    <button class="btn-primary" {{action 'newOrder'}} title={{t 'cashier.new-order-button.tooltip'}}>
+      {{t 'cashier.new-order-button.label'}}
+    </button>
+    {{connection-status connectedService=orderService}}
+  </header>
 
-{{#if orderService.order}}
-  <section class="cashier-products-container">
-    <section class="cashier-available-products">
-      <ol>
-        {{#each products as |product|}}
-          {{cashier-product model=product order=orderService.order showButtons=true disableButtons=disableEditing }}
-        {{/each}}
-      </ol>
+  {{#if orderService.order}}
+    <section class="cashier-products-container">
+      <section class="cashier-available-products">
+        <ol>
+          {{#each products as |product|}}
+            {{cashier-product model=product order=orderService.order showButtons=true disableButtons=disableEditing }}
+          {{/each}}
+        </ol>
+      </section>
+      <section class="cashier-product-summary">
+        
+        {{cashier-product-summary classNames="cashier-product-summary-items" model=products}}
+        
+        <div class="cashier-product-summary-btns">
+          {{#if (eq orderService.order.status 'preparing')}}
+            <button class="btn-primary ready-to-pay-btn" {{action 'setStatus' 'readyForPayment'}} title={{t 'cashier.ready-for-payment-button.tooltip'}}>
+              {{t 'cashier.ready-for-payment-button.label'}}
+            </button>
+          {{else if (eq orderService.order.status 'readyForPayment')}}
+            <button class="btn-primary" {{action 'setStatus' 'preparing'}} title={{t 'cashier.back-to-preparation-button.tooltip'}}>
+              {{t 'cashier.back-to-preparation-button.label'}}
+            </button>
+            <button class="btn-primary btn-payed" {{action 'setStatus' 'paid'}} title={{t 'cashier.mark-as-paid-button.tooltip'}}>
+              {{t 'cashier.mark-as-paid-button.label'}}
+            </button>
+          {{/if}}
+        </div>
+
+      </section>
     </section>
-    <section class="cashier-product-summary">
-      
-      {{cashier-product-summary classNames="cashier-product-summary-items" model=products}}
-      
-      <div class="cashier-product-summary-btns">
-        {{#if (eq orderService.order.status 'preparing')}}
-          <button class="btn-primary ready-to-pay-btn" {{action 'setStatus' 'readyForPayment'}} title={{t 'cashier.ready-for-payment-button.tooltip'}}>
-            {{t 'cashier.ready-for-payment-button.label'}}
-          </button>
-        {{else if (eq orderService.order.status 'readyForPayment')}}
-          <button class="btn-primary" {{action 'setStatus' 'preparing'}} title={{t 'cashier.back-to-preparation-button.tooltip'}}>
-            {{t 'cashier.back-to-preparation-button.label'}}
-          </button>
-          <button class="btn-primary btn-payed" {{action 'setStatus' 'paid'}} title={{t 'cashier.mark-as-paid-button.tooltip'}}>
-            {{t 'cashier.mark-as-paid-button.label'}}
-          </button>
-        {{/if}}
-      </div>
-
-    </section>
-  </section>
-{{else}}
-  <span class="no-order">{{t 'cashier.no-active-order'}}</span>
-{{/if}}
+  {{else if noActiveOrder}}
+    <span class="no-order">{{t 'cashier.no-active-order'}}</span>
+  {{/if}}
+</div>

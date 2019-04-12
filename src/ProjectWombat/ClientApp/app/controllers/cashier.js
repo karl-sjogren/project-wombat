@@ -1,10 +1,15 @@
 import Controller from '@ember/controller';
-import { computed } from '@ember/object';
+import { computed, observer, set } from '@ember/object';
 import { inject } from '@ember/service';
 
 export default Controller.extend({
   orderService: inject('cashierOrderService'),
   cashierService: inject(),
+  classNameBindings: ['noActiveOrder:no-active-order'],
+
+  noActiveOrder: computed('orderService.order', function() {
+    return !this.orderService.order;
+  }),
 
   disableEditing: computed('orderService.order.status', function() {
     if(!this.orderService.order) {
@@ -18,6 +23,12 @@ export default Controller.extend({
     return false;
   }),
 
+  orderIdObserver: observer('orderSerice.order.id', function() {
+    this.products.forEach(product => {
+      set(product, 'count', 0);
+    })
+  }),
+
   actions: {
     newOrder() {
       this.orderService.createOrder().then(order => {
@@ -28,6 +39,10 @@ export default Controller.extend({
     setStatus(status) {
       this.orderService.setOrderStatus(this.orderService.order.id, status);
       this.set('orderService.order.status', status);
+
+      if(status === 'paid') {
+        this.orderService.set('order', null);
+      }
     }
   }
 });
