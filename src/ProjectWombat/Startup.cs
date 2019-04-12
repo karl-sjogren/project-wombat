@@ -56,7 +56,7 @@ namespace ProjectWombat {
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration => {
-                configuration.RootPath = "ClientApp/build";
+                configuration.RootPath = "ClientApp/dist";
             });
         }
 
@@ -84,7 +84,7 @@ namespace ProjectWombat {
             });
 
             app.UseSpa(spa => {
-                spa.Options.SourcePath = "ClientApp/dist";
+                spa.Options.SourcePath = "ClientApp/";
 
                 if(env.IsDevelopment()) {
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
