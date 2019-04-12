@@ -45,7 +45,6 @@ namespace ProjectWombat.Services {
 
         public async Task<Order> Save(Order order) {
             var existingOrder = await GetOrder(order.Id);
-            existingOrder.Amount = order.Amount;
             return existingOrder;
         }
 

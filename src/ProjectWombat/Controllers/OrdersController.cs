@@ -34,10 +34,7 @@ namespace ProjectWombat.Controllers {
 
         [HttpGet("{orderId}/swish-qr-code")]
         public async Task<IActionResult> SwishQrCode(string orderId) {
-            var order = new Order {
-                Id = orderId,
-                Amount = 124
-            };
+            var order = await _orderService.GetOrder(orderId);
             
             var buffer = await _qrCodeGenerator.GetQrCodeForOrder(order);
 

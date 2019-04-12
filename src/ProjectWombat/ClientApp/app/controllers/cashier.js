@@ -5,7 +5,6 @@ import { inject } from '@ember/service';
 export default Controller.extend({
   orderService: inject('cashierOrderService'),
   cashierService: inject(),
-  classNameBindings: ['noActiveOrder:no-active-order'],
 
   noActiveOrder: computed('orderService.order', function() {
     return !this.orderService.order;
@@ -23,7 +22,7 @@ export default Controller.extend({
     return false;
   }),
 
-  orderIdObserver: observer('orderSerice.order.id', function() {
+  orderIdObserver: observer('orderService.order.id', function() {
     this.products.forEach(product => {
       set(product, 'count', 0);
     })

@@ -11,7 +11,7 @@
       {{#if (eq orderService.order.status 'readyForPayment')}}
         <span class="order-id-label">{{t 'customer.order-id'}}</span>
         <span class="order-id">{{orderService.order.id}}</span>
-        {{swish-qr-code}}
+        {{swish-qr-code model=orderService.order}}
         <span class="swish-qr-code">{{t 'customer.swish-qr-code'}}</span>
       {{/if}}
     </div>
