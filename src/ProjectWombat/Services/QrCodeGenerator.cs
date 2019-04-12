@@ -22,7 +22,7 @@ namespace ProjectWombat.Services {
                 format = "png",
                 size = 600,
                 payee = new {
-                    value = "+46730647352",
+                    value = _configuration.SwishReceiver,
                     editable = false
                 },
                 amount = new {
