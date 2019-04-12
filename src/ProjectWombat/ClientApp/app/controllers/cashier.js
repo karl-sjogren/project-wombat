@@ -5,7 +5,6 @@ import { inject } from '@ember/service';
 export default Controller.extend({
   orderService: inject('cashierOrderService'),
   cashierService: inject(),
-  classNameBindings: ['noActiveOrder:no-active-order'],
 
   noActiveOrder: computed('orderService.order', function() {
     return !this.orderService.order;

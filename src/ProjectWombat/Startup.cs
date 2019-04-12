@@ -84,7 +84,7 @@ namespace ProjectWombat {
             });
 
             app.UseSpa(spa => {
-                spa.Options.SourcePath = "ClientApp";
+                spa.Options.SourcePath = "ClientApp/dist";
 
                 if(env.IsDevelopment()) {
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
