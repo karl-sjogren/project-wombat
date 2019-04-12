@@ -192,7 +192,107 @@ header{
   background: #06d44a;
 }
 
+@diod-diam:     12px;
 
-.customer-header{
+.connection-status {
+  font-size: 0;
+  &:before{
+    content: "";
+    border-radius: 50%;
+    display: block;
+    width: @diod-diam;
+    height: @diod-diam;
+    //margin-top: 7px;
+    
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+  }  
+  &.status-connected {
+    &:before{
+      background-color: #6BFF2E;
+      animation-name: pulse-green;
+      -webkit-animation-name: pulse-green;
+    }
+  }
+  
+  &.status-connecting {
+    &:before{
+      background-color: rgb(240, 205, 6);
+      animation-name: pulse-red;
+      -webkit-animation-name: pulse-red;
+    }
+  }
+  &.status-disconnected {
+    &:before{
+      background-color: #E83308;
+      animation-name: pulse-red;
+      -webkit-animation-name: pulse-red;
+    }
+  }
+}
 
+.box-shadow(@style) {
+  box-shadow: @style;
+  -webkit-box-shadow: @style;
+}
+
+.red-pulse-start {
+  .box-shadow(0 0 6px rgba(232, 51, 8, 1));
+}
+
+.green-pulse-start {
+  .box-shadow(0 0 6px rgba(107, 255, 46, 1));
+}
+
+.red-pulse-end {
+  .box-shadow(0 0 0 rgba(232, 51, 8, 1));
+}
+
+.green-pulse-end {
+  .box-shadow(0 0 0 rgba(107, 255, 46, 1));
+}
+
+@-webkit-keyframes pulse-red {
+  0% {
+    .red-pulse-start;
+  } 
+
+  100% {
+    .red-pulse-end;
+  }
+}
+
+@keyframes pulse-red {
+  0% {
+    .red-pulse-start;
+  } 
+
+  100% {
+    .red-pulse-end;
+  }
+}
+
+@-webkit-keyframes pulse-green {
+  0% {
+    .green-pulse-start;
+  } 
+
+  100% {
+    .green-pulse-end;
+  }
+}
+
+@keyframes pulse-green {
+  0% {
+    .green-pulse-start;
+  } 
+
+  100% {
+    .green-pulse-end;
+  }
 }
